@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ggro"
+version = "1.0.0"
+description = "Gradient-Guided Reward Optimization for inference-time alignment"
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "Hankun Lin"}, {name = "Ruqi Zhang"}]
+dependencies = [
+  "accelerate==1.8.1",
+  "datasets==3.6.0",
+  "huggingface-hub==0.35.3",
+  "numpy==1.26.4",
+  "safetensors==0.5.3",
+  "sentencepiece==0.2.1",
+  "tokenizers==0.21.4",
+  "torch==2.7.1",
+  "tqdm==4.67.1",
+  "transformers==4.52.1",
+]
+
+[project.scripts]
+ggro-run = "ggro.cli:main"
+ggro-report = "ggro.report:main"
+ggro-eval-safety = "ggro.safety_evaluation:main"
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2606.09635"
+Repository = "https://github.com/lhk2004/GGRO"
+
+[tool.setuptools.packages.find]
+include = ["ggro*"]

@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ruff_cache/
+.env
+.venv/
+build/
+dist/
+outputs/
+wandb/
+*.log
