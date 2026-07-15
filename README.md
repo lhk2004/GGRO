@@ -1,7 +1,7 @@
 # Gradient-Guided Reward Optimization
 
-Official implementation of **Gradient-Guided Reward Optimization for
-Inference-time Alignment (GGRO)**.
+Official implementation of [**Gradient-Guided Reward Optimization for
+Inference-time Alignment (GGRO)**](https://arxiv.org/abs/2606.09635).
 
 GGRO keeps both the base language model and reward model frozen. During
 autoregressive generation it monitors next-token entropy, treats high-entropy
