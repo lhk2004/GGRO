@@ -53,7 +53,7 @@ class GGROConfig:
     output_dir: Path = Path("outputs")
     cache_dir: Optional[Path] = None
     hf_token: Optional[str] = None
-    seed: int = 42
+    seed: int = 1
     start_index: int = 0
     num_prompts: Optional[int] = None
     max_new_tokens: Optional[int] = None
