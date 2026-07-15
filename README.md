@@ -1,7 +1,7 @@
 # Gradient-Guided Reward Optimization
 
 Official implementation of [**Gradient-Guided Reward Optimization for
-Inference-time Alignment (GGRO)**](https://arxiv.org/abs/2606.09635).
+Inference-time Alignment**](https://arxiv.org/abs/2606.09635) (GGRO).
 
 GGRO keeps both the base language model and reward model frozen. During
 autoregressive generation it monitors next-token entropy, treats high-entropy
@@ -102,7 +102,7 @@ After generation, pass the resulting JSONL file to the bundled evaluator:
 
 ```bash
 ggro-eval-safety \
-  outputs/hex-phi/llama-3.1-8b/seed-42-<config-hash>/generations.jsonl
+  outputs/hex-phi/llama-3.1-8b/seed-1-<config-hash>/generations.jsonl
 ```
 
 The default judge is `meta-llama/Llama-Guard-3-8B`. Accept its Hugging Face
@@ -130,7 +130,7 @@ or `--output PATH` to keep a separate evaluation. For example:
 
 ```bash
 ggro-eval-safety \
-  outputs/hex-phi/llama-3.1-8b/seed-42-<config-hash>/generations.jsonl \
+  outputs/hex-phi/llama-3.1-8b/seed-1-<config-hash>/generations.jsonl \
   --num-examples 10 \
   --device cuda:0
 ```
@@ -141,7 +141,7 @@ ggro-eval-safety \
 ggro-run \
   --model llama-3.1-8b \
   --task xstest \
-  --seed 42
+  --seed 1
 ```
 
 Inspect the generated XSTest responses directly for evaluation; GGRO does not
@@ -153,7 +153,7 @@ assign an automatic behavioral label to them.
 ggro-run \
   --model llama-3.1-8b \
   --task hh-rlhf \
-  --seed 42
+  --seed 1
 ```
 
 ### Reasoning: ARC-Challenge
@@ -162,7 +162,7 @@ ggro-run \
 ggro-run \
   --model llama-3.2-3b \
   --task arc-challenge \
-  --seed 42
+  --seed 1
 ```
 
 ### Reasoning: MMLU-Pro
@@ -171,7 +171,7 @@ ggro-run \
 ggro-run \
   --model llama-3.1-8b \
   --task mmlu-pro \
-  --seed 42
+  --seed 1
 ```
 
 Use `--start-index` and `--num-prompts` to run a shard or a smoke test:
@@ -204,7 +204,7 @@ Reasoning tasks include the parsed choice and correctness.
 Summarize locally computable metrics with:
 
 ```bash
-ggro-report outputs/arc-challenge/llama-3.1-8b/seed-42-<config-hash>/generations.jsonl
+ggro-report outputs/arc-challenge/llama-3.1-8b/seed-1-<config-hash>/generations.jsonl
 ```
 
 The report includes mean reward, mean nudge count, and accuracy when available.
